@@ -1,0 +1,28 @@
+{% extends 'skeleton.html' %}
+
+{% block body %}
+
+<div style="background-color: #dddddd;">
+<table class="menu" style="width: 100%;">
+  <tr>
+    <td style="text-align: right;">
+      <a{% block home_menu %}{% endblock %} href="{{ url_for('home') }}">Mnemonic</a>
+      <a{% block faq_menu %}{% endblock %} href="{{ url_for('faq') }}">FAQ</a>
+    </td>
+  </tr>
+</table>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<br>
+
+<div class="container" style="background-color: #dddddd;">
+    <div>
+      <h3>Mnemonic.si</h3>
+    </div>
+</div>
+
+
+{% endblock %}

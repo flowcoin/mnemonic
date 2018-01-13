@@ -1,0 +1,61 @@
+body {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 25px;
+}
+
+a {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #555;
+}
+
+.container {
+  width: 800px;
+  background-color: #eeeeee;
+  display: inline-block;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.menu a:hover {
+  color: white;
+  background-color: black;
+}
+
+a.active {
+  color: white;
+  background-color: black;
+}
+
+.block {
+  display: inline-block;
+  width: 199px;
+  vertical-align: top;
+}
+
+.menu a.menu-first-item {
+  color: black;
+  background-color: transparent;
+}
+
+.menu a.menu-first-item:hover {
+  color: white;
+  background-color: black;
+}
+
+.container > div {
+  display: inline-block;
+  width: 100%;
+}
+

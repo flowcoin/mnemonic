@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Word list{% endblock %}
+
+{% block home_menu %} class="active"{%endblock%}
+
+{% block content %}
+
+<div>
+
+<h2>The list of mnemonic words</h2>
+
+<span class="loading">Loading...</span>
+
+<table class="data-table" class="display" cellspacing="0" width="100%" style="font-size: 10px;">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>binary</th>
+            <th>decimal</th>
+            <th>length</th>
+            <th>sentiment</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+    
+</div>
+
+<script>
+
+$(function() {
+
+    function refresh() {
+        $.getJSON("/api/words", function(data) {
+
+            $.each(data.result, function(id, word) {
+            
+                var sentiment = word.sentiment;
+                if (sentiment == null) {
+                    sentiment = 0;
+                }
+            
+                $(".data-table tbody").append(
+                    "<tr>" +
+                    "<td>" + word.name + "</td>" +
+                    "<td>" + word.binary + "</td>" +
+                    "<td>" + word.decimal + "</td>" +
+                    "<td>" + word.length + "</td>" +
+                    "<td>" + sentiment + "</td>" +
+                    "</tr>"
+                );
+                            
+            })
+            
+            $('.data-table').DataTable();        
+            $(".loading").hide(5000);
+        })
+    }
+    
+    refresh();
+})
+    
+</script>
+
+{% endblock %}
+
