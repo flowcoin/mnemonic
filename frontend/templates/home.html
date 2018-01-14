@@ -8,9 +8,7 @@
 
 <div>
 
-<h2>The list of mnemonic words</h2>
-
-<span class="loading">Loading...</span>
+<h2 class="loading" data-text="The list of mnemonic words">Loading...</h2>
 
 <table class="data-table" class="display" cellspacing="0" width="100%" style="font-size: 10px;">
     <thead>
@@ -33,9 +31,9 @@
 $(function() {
 
     function refresh() {
-        $.getJSON("/api/words", function(data) {
+        $.getJSON("/static/data/words.json", function(data) {
 
-            $.each(data.result, function(id, word) {
+            $.each(data, function(id, word) {
             
                 var sentiment = word.sentiment;
                 if (sentiment == null) {
@@ -55,7 +53,7 @@ $(function() {
             })
             
             $('.data-table').DataTable();        
-            $(".loading").hide(5000);
+            $(".loading").text($(".loading").attr("data-text"));
         })
     }
     
