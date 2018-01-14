@@ -16,14 +16,14 @@ print("wrote to %s" % target)
 
 binary_to_name = OrderedDict({})
 for word in words_cached["result"]:
-    words[word["binary"]] = word["name"]
+    binary_to_name[word["binary"]] = word["name"]
 target = "static/data/binary_to_name.json"
 open(target, "w").write(json.dumps(binary_to_name, indent=4))
 print("wrote to %s" % target)
 
 decimal_to_name = OrderedDict({})
 for word in words_cached["result"]:
-    words[word["decimal"]] = word["name"]
+    decimal_to_name[word["decimal"]] = word["name"]
 target = "static/data/decimal_to_name.json"
 open(target, "w").write(json.dumps(decimal_to_name, indent=4))
 print("wrote to %s" % target)
